@@ -1,91 +1,96 @@
-import React, { useState } from "react";
-import "./App.css"
-
-const AgeCalculator = () => {
-  const [day, setDay] = useState("");
-  const [month, setMonth] = useState("");
-  const [year, setYear] = useState("");
-  const [age, setAge] = useState({ years: "--", months: "--", days: "--" });
-  const [error, setError] = useState("");
-
-  const calculateAge = () => {
-    setError("");
-
-    if (!day || !month || !year) {
-      setError("This field is required");
-      return;
-    }
-
-    const birthDate = new Date(`${year}-${month}-${day}`);
-    const today = new Date();
-
-    if (birthDate > today) {
-      setError("Must be in past");
-      return;
-    }
-
-    const validDaysInMonth = new Date(year, month, 0).getDate();
-    if (day < 1 || day > validDaysInMonth) {
-      setError("Must be a valid day");
-      return;
-    }
-    if (month < 1 || month > 12) {
-      setError("Must be a valid month");
-      return;
-    }
-
-    
-    let diffYears = today.getFullYear() - birthDate.getFullYear();
-    let diffMonths = today.getMonth() - birthDate.getMonth();
-    let diffDays = today.getDate() - birthDate.getDate();
-
-    if (diffDays < 0) {
-      diffMonths--;
-      diffDays += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
-    }
-    if (diffMonths < 0) {
-      diffYears--;
-      diffMonths += 12;
-    }
-
-    setAge({ years: diffYears, months: diffMonths, days: diffDays });
-  };
-
+import React from "react";
+import { Card, CardMedia, CardContent, Typography, Button, Box } from "@mui/material";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import imageD from "./image-product-desktop.jpg";
+import imageM from "./image-product-mobile.jpg";
+const HalfImageCard = () => {
   return (
-    <div className="content">
-    
-      <div className="input">
-        <div>
-          <label>Day</label>
-          <input id="dayIn" type="number" value={day} onChange={(e) => setDay(e.target.value)} />
+    <div>
+      {/* Main Card */}
+      <Card
+        sx={{
+          display: "flex",
+          maxWidth: 450,
+          borderRadius: 3,
+          boxShadow: 4,
+          overflow: "hidden",
+          margin: "auto",
+          marginTop: "100px",
+        }}
+      >
+        {/* Left Side - Image */}
+        <CardMedia
+          component="img"
+          image={imageD}
+          alt="A bottle of perfume surrounded by foliage."
+          sx={{ width: "50%", objectFit: "cover" }}
+        />
+
+        {/* Right Side - Content */}
+        <CardContent
+          sx={{
+            width: "50%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            padding: "20px",
+            backgroundColor: "#fff",
+          }}
+        >
+          <Typography className="category" variant="subtitle2" sx={{ color: "gray", letterSpacing: 1 }}>
+            PERFUME
+          </Typography>
+
+          <h1>Gabrielle Essence Eau De Parfum.</h1>
+
+          <p className="product-desc">
+            A floral, solar and voluptuous interpretation composed by Olivier Polge, Perfumer-Creator for the House of CHANEL.
+          </p>
+
+          {/* Price Section */}
+          <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
+            <Typography className="sale-price" variant="h6" sx={{ fontWeight: "bold", color: "#2E7D32" }}>
+              $149.99
+            </Typography>
+            <Typography
+              className="list-price"
+              variant="body2"
+              sx={{ textDecoration: "line-through", color: "gray", marginLeft: 1 }}
+            >
+              $169.99
+            </Typography>
+          </Box>
+
+          {/* Add to Cart Button */}
+          <Button
+            variant="contained"
+            color="success"
+            startIcon={<ShoppingCartIcon />}
+            sx={{
+              "&:hover": {
+                backgroundColor: "rgb(60, 128, 103)",
+                transform: "scale(1.05)",
+              },
+              mt: 2,
+              borderRadius: 2,
+              textTransform: "none",
+            }}
+          >
+            Add to Cart
+          </Button>
+        </CardContent>
+      </Card>
+
+      {/* Footer Section */}
+      <footer style={{ textAlign: "center", marginTop: "20px" }}>
+        <div className="attribution">
+          <a href="https://www.crio.do" target="_blank" rel="noopener noreferrer">
+            Powered by Crio
+          </a>
         </div>
-        <div>
-          <label>Month</label>
-          <input id="monthIn" type="number" value={month} onChange={(e) => setMonth(e.target.value)} />
-        </div>
-        <div>
-          <label>Year</label>
-          <input id="yearIn" type="number" value={year} onChange={(e) => setYear(e.target.value)} />
-        </div>
-      </div>
-
-      {error && <p className="error">{error}</p>}
-
-     
-      <button id="calculateBtn" onClick={calculateAge}>Calculate</button>
-
-      
-      <div className="output">
-        <p><span id="yearOut">{age.years}</span> Years</p>
-        <p><span id="monthOut">{age.months}</span> Months</p>
-        <p><span id="dayOut">{age.days}</span> Days</p>
-      </div>
-
-      <div className="attribution">
-        <a href="https://www.crio.do" target="_blank" rel="noopener noreferrer">Crio</a>
-      </div>
+      </footer>
     </div>
   );
 };
 
-export default AgeCalculator;
+export default HalfImageCard;
