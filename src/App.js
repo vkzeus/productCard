@@ -66,22 +66,23 @@ const HalfImageCard = () => {
           </Box>
 
           {/* Add to Cart Button */}
-          <Button
-            variant="contained"
-            color="success"
-            startIcon={<ShoppingCartIcon />}
-            sx={{
-              "&:hover": {
-                backgroundColor: "rgb(60, 128, 103) !important ",
-                transform: "scale(1.05)",
-              },
-              mt: 2,
-              borderRadius: 2,
-              textTransform: "none",
-            }}
-          >
-            Add to Cart
-          </Button>
+         <Button
+  variant="contained"
+  color="success"
+  startIcon={<ShoppingCartIcon />}
+  sx={{
+    "&:hover": {
+      backgroundColor: "rgb(60, 128, 103)",
+      transform: "scale(1.05)",
+    },
+    mt: 2,
+    borderRadius: 2,
+    textTransform: "none",
+    transition: "background-color 0.2s ease-in-out, transform 0.2s ease-in-out",
+  }}
+>
+  Add to Cart
+</Button>
         </CardContent>
       </Card>
 
