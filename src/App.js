@@ -1,7 +1,7 @@
-import React from "https://unpkg.com/react@18/umd/react.development.js";
-import ReactDOM from "https://unpkg.com/react-dom@18/umd/react-dom.development.js";
-import { Card, CardMedia, CardContent, Typography, Button, Box } from "https://unpkg.com/@mui/material/umd/material-ui.production.min.js";
-import ShoppingCartIcon from "https://unpkg.com/@mui/icons-material/umd/material-ui-icons.production.min.js";
+import React from "react";
+import ReactDOM from "react-dom";
+import { Card, CardMedia, CardContent, Typography, Button, Box } from "@mui/material";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const imageD = "./image-product-desktop.jpg";
 const imageM = "./image-product-mobile.jpg";
