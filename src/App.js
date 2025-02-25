@@ -1,12 +1,14 @@
-import React from "react";
-import { Card, CardMedia, CardContent, Typography, Button, Box } from "@mui/material";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import imageD from "./image-product-desktop.jpg";
-import imageM from "./image-product-mobile.jpg";
+import React from "https://unpkg.com/react@18/umd/react.development.js";
+import ReactDOM from "https://unpkg.com/react-dom@18/umd/react-dom.development.js";
+import { Card, CardMedia, CardContent, Typography, Button, Box } from "https://unpkg.com/@mui/material/umd/material-ui.production.min.js";
+import ShoppingCartIcon from "https://unpkg.com/@mui/icons-material/umd/material-ui-icons.production.min.js";
+
+const imageD = "./image-product-desktop.jpg"; 
+const imageM = "./image-product-mobile.jpg"; 
+
 const HalfImageCard = () => {
   return (
     <div>
-      {/* Main Card */}
       <Card
         sx={{
           display: "flex",
@@ -22,7 +24,7 @@ const HalfImageCard = () => {
         <CardMedia
           component="img"
           image={imageD}
-          alt="A bottle of perfume surrounded by foliage."
+          alt="A bottle of perfume surrounded by foliage"
           sx={{ width: "50%", objectFit: "cover" }}
         />
 
@@ -38,14 +40,16 @@ const HalfImageCard = () => {
           }}
         >
           <Typography className="category" variant="subtitle2" sx={{ color: "gray", letterSpacing: 1 }}>
-            PERFUME
+            Perfume
           </Typography>
 
-          <h1>Gabrielle Essence Eau De Parfum.</h1>
+          <Typography variant="h5" component="h1">
+            Gabrielle Essence Eau De Parfum
+          </Typography>
 
-          <p className="product-desc">
+          <Typography className="product-desc" variant="body2" sx={{ color: "gray", mt: 1 }}>
             A floral, solar and voluptuous interpretation composed by Olivier Polge, Perfumer-Creator for the House of CHANEL.
-          </p>
+          </Typography>
 
           {/* Price Section */}
           <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
@@ -93,4 +97,6 @@ const HalfImageCard = () => {
   );
 };
 
-export default HalfImageCard;
+// Render the component
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<HalfImageCard />);
