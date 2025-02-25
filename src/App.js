@@ -3,8 +3,8 @@ import ReactDOM from "https://unpkg.com/react-dom@18/umd/react-dom.development.j
 import { Card, CardMedia, CardContent, Typography, Button, Box } from "https://unpkg.com/@mui/material/umd/material-ui.production.min.js";
 import ShoppingCartIcon from "https://unpkg.com/@mui/icons-material/umd/material-ui-icons.production.min.js";
 
-const imageD = "./image-product-desktop.jpg"; 
-const imageM = "./image-product-mobile.jpg"; 
+const imageD = "./image-product-desktop.jpg";
+const imageM = "./image-product-mobile.jpg";
 
 const HalfImageCard = () => {
   return (
@@ -48,7 +48,7 @@ const HalfImageCard = () => {
           </Typography>
 
           <Typography className="product-desc" variant="body2" sx={{ color: "gray", mt: 1 }}>
-            A floral, solar and voluptuous interpretation composed by Olivier Polge, Perfumer-Creator for the House of CHANEL.
+            <p>A floral, solar and voluptuous interpretation composed by Olivier Polge, Perfumer-Creator for the House of CHANEL.</p>
           </Typography>
 
           {/* Price Section */}
@@ -85,11 +85,10 @@ const HalfImageCard = () => {
         </CardContent>
       </Card>
 
-      {/* Footer Section */}
       <footer style={{ textAlign: "center", marginTop: "20px" }}>
         <div className="attribution">
           <a href="https://www.crio.do" target="_blank" rel="noopener noreferrer">
-            Powered by Crio
+            Challenge by Crio
           </a>
         </div>
       </footer>
@@ -97,6 +96,4 @@ const HalfImageCard = () => {
   );
 };
 
-// Render the component
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<HalfImageCard />);
+export default HalfImageCard;
