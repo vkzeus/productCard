@@ -66,13 +66,12 @@ const HalfImageCard = () => {
           </Box>
 
           {/* Add to Cart Button */}
-         <Button
+    <Button
   variant="contained"
-  color="success"
-  startIcon={<ShoppingCartIcon />}
   sx={{
+    backgroundColor: "rgb(76, 175, 80)", // Ensure default color is set explicitly
     "&:hover": {
-      backgroundColor: "rgb(60, 128, 103)",
+      backgroundColor: "rgb(60, 128, 103)", // Ensure Cypress detects this correctly
       transform: "scale(1.05)",
     },
     mt: 2,
@@ -80,6 +79,7 @@ const HalfImageCard = () => {
     textTransform: "none",
     transition: "background-color 0.2s ease-in-out, transform 0.2s ease-in-out",
   }}
+  startIcon={<ShoppingCartIcon />}
 >
   Add to Cart
 </Button>
