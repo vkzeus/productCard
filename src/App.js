@@ -72,7 +72,7 @@ const HalfImageCard = () => {
             startIcon={<ShoppingCartIcon />}
             sx={{
               "&:hover": {
-                backgroundColor: "rgb(60, 128, 103)",
+                backgroundColor: "rgb(46, 125, 50)",
                 transform: "scale(1.05)",
               },
               mt: 2,
