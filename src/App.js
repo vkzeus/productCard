@@ -69,7 +69,7 @@ const HalfImageCard = () => {
     <Button
   variant="contained"
   sx={{
-    backgroundColor: "rgb(76, 175, 80)", // Ensure default color is set explicitly
+    backgroundColor: "rgb(60, 128, 103)", // Ensure default color is set explicitly
     "&:hover": {
       backgroundColor: "rgb(60, 128, 103)", // Ensure Cypress detects this correctly
       transform: "scale(1.05)",
